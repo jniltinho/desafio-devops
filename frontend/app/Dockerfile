@@ -1,6 +1,7 @@
 FROM node:16-bullseye-slim as builder
 
 ## https://wkrzywiec.medium.com/build-and-run-angular-application-in-a-docker-container-b65dbbc50be8
+## https://www.indellient.com/blog/how-to-dockerize-an-angular-application-with-nginx/
 
 # docker build --no-cache -t frontend .
 # docker run -p 8080:80 frontend
