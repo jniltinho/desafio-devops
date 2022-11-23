@@ -13,7 +13,7 @@ RUN npm install
 RUN npm link @angular/cli@12.2.16
 RUN npm run build
 
-FROM nginx:1.23.2-alpine
+FROM nginx:1.18.0-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 ## COPY --from=builder /opt/app/dist/letscodebyada-app/* /web/
 COPY --from=builder /opt/app/dist/letscodebyada-app /usr/share/nginx/html
