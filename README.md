@@ -2,7 +2,7 @@
 
 ## Ambiente de Desenvolvimento
 
-URL Padrão: http://localhost:8080\
+URL Padrão: http://localhost:8080 \
 Ferramentas necessárias para subir no ambiente de Desenvolvimento
 - git,terminal,docker,docker-compose,vs-code
 
