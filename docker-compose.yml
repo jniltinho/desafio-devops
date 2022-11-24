@@ -7,7 +7,7 @@ services:
       context: ./frontend/app
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8081:80"
 
   backend:
     image: backend:latest
@@ -16,7 +16,7 @@ services:
       context: ./backend/app
       dockerfile: Dockerfile
     ports:
-      - "8081:8080"
+      - "8080:8080"
     environment:
       - MYSQL_DB_HOST=jdbc:mysql://mysqldb:3306/employeedb?useSSL=false
       - MYSQL_DB_USER=sa
