@@ -2,14 +2,9 @@
 
 ## Ambiente de Desenvolvimento
 
-To boot the default url: http://localhost:8080
-
+URL Padrão: http://localhost:8080\
 Ferramentas necessárias para subir no ambiente de Desenvolvimento
-- git
-- terminal
-- docker
-- docker-compose
-- vs-code
+- git,terminal,docker,docker-compose,vs-code
 
 
 ```
