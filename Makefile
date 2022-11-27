@@ -37,3 +37,13 @@ add-user-mysql-k8s:
 	$(eval POD := $(shell kubectl get pod -l app=mysqldb -o jsonpath="{.items[0].metadata.name}"))
 	kubectl exec $(POD) -- mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "INSERT INTO usuario (username, password) VALUES('admin', 'admin');"
 	kubectl exec $(POD) -- mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "SELECT * FROM usuario;"
+
+install-kind:
+	curl -Lo kind https://github.com/kubernetes-sigs/kind/releases/download/v0.17.0/kind-linux-amd64
+	chmod +x kind
+	sudo mv kind /usr/local/bin/
+
+install-kubectl:
+	curl -LO "https://dl.k8s.io/release/$(shell curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+	chmod +x kubectl
+	sudo mv kubectl /usr/local/bin/
