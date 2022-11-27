@@ -25,7 +25,7 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
-curl -L -o kind https://github.com/kubernetes-sigs/kind/releases/download/v0.17.0/kind-linux-amd64
+curl -Lo kind https://github.com/kubernetes-sigs/kind/releases/download/v0.17.0/kind-linux-amd64
 chmod +x kind
 sudo mv kind /usr/local/bin/
 ```
