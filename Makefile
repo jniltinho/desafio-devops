@@ -19,6 +19,7 @@ build-backend:
 deploy-compose:
 	docker-compose build
 	docker-compose up -d
+	sleep 20
 	docker-compose exec mysqldb mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "INSERT INTO usuario (username, password) VALUES('admin', 'admin');"
 	docker-compose exec mysqldb mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "SELECT * FROM usuario;"
 
