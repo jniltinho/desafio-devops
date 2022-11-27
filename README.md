@@ -40,6 +40,7 @@ make create-cluster-kind
 git clone https://github.com/jniltinho/desafio-devops.git
 cd desafio-devops
 make deploy-kubernetes
+## Espere até os pods estejam READY (kubectl get pods)
 make add-user-mysql-k8s
 ## Acesso ao service sem ingress
 ## kubectl port-forward service/frontend 8081:80 & kubectl port-forward service/backend 8080:80
