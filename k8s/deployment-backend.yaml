@@ -1,0 +1,18 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  strategy: Recreate
+  selector:
+    matchLabels:
+      deploy: backend
+  template:
+    metadata:
+      labels:
+        deploy: backend
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/jniltinho/desafio-devops/backend:latest
