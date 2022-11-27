@@ -1,0 +1,47 @@
+name: "BUILD DOCKER IMAGE"
+
+on:
+  push:
+    branches:
+      - build
+  workflow_dispatch:
+      
+env:
+  IMAGE_BACKEND: 'ghcr.io/${{github.repository_owner}}/backend'
+  IMAGE_FRONTEND: 'ghcr.io/${{github.repository_owner}}/frontend'
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    
+    - name: Docker Login
+      uses: docker/login-action@v1.14.1
+      with:
+        registry: ghcr.io
+        username: ${{github.repository_owner}}
+        password: ${{secrets.GITHUB_TOKEN}}
+    
+    - name: Build Backend
+      run: |
+        cd backend/app; docker build --no-cache -t ${IMAGE_BACKEND}:latest .
+        docker tag ${IMAGE_BACKEND}:latest ${IMAGE_BACKEND}:${GITHUB_SHA::6}
+
+    - name: Push Backend
+      run: |
+        docker push ${IMAGE_BACKEND}:${GITHUB_SHA::6}
+        docker push ${IMAGE_BACKEND}:latest
+        
+        
+    - name: Build Frontend
+      run: |
+        cd frontend/app; docker build --no-cache -t ${IMAGE_FRONTEND}:latest .
+        docker tag ${IMAGE_FRONTEND}:latest ${IMAGE_FRONTEND}:${GITHUB_SHA::6}
+
+    - name: Push Frontend
+      run: |
+        docker push ${IMAGE_FRONTEND}:${GITHUB_SHA::6}
+        docker push ${IMAGE_FRONTEND}:latest
