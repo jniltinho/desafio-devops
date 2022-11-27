@@ -4,13 +4,14 @@
 
 URL padrão depois de subir a aplicação: http://localhost:8081 \
 Ferramentas necessárias para subir no ambiente de Desenvolvimento
-- git,terminal,docker,docker-compose,vscode
+- git,terminal,docker,docker-compose,make
 
 ```
 git clone https://github.com/jniltinho/desafio-devops.git
 cd desafio-devops
-docker-compose build
-docker-compose up
+make deploy-compose
+make add-user-mysql-compose
+## User: admin Pass: admin
 ## http://localhost:8081
 ```
 
