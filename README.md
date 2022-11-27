@@ -38,3 +38,8 @@ kubectl cluster-info --context kind-desafio-devops-cluster
 kubectl apply -f desafio-devops/k8s/deployment-frontend.yaml
 kubectl apply -f desafio-devops/k8s/deployment-backend.yaml
 ```
+
+## Links
+- https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+- https://kind.sigs.k8s.io/docs/user/quick-start/
+- https://www.youtube.com/watch?v=dL19dSGKZoc
