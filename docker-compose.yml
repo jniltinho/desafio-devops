@@ -8,10 +8,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8081:80"
+    depends_on:
+      - backend
 
   backend:
     image: backend:latest
-    restart: on-failure:5
+    restart: on-failure:2
     build:
       context: ./backend/app
       dockerfile: Dockerfile
