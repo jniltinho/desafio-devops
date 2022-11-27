@@ -15,6 +15,13 @@ spec:
         - name: backend
           image: ghcr.io/jniltinho/desafio-devops/backend:latest
           imagePullPolicy: IfNotPresent
+          env:
+          - name: MYSQL_DB_HOST
+            value: jdbc:mysql://mysqldb:3306/backenddb?useSSL=false
+          - name: MYSQL_DB_USER
+            value: sa
+          - name: MYSQL_DB_PASS
+            value: 123456
           resources:
             limits:
               memory: "128Mi"
