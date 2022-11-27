@@ -7,7 +7,7 @@ Ferramentas necessárias para subir no ambiente de Desenvolvimento \
 
 ### Escolha entre Docker-Compose ou Kubernetes
 
-URL: http://localhost:8081 | User: admin Pass: admin \
+URL: http://localhost:8081 | User: admin Pass: admin
 
 ## Usando Docker-Compose
 
