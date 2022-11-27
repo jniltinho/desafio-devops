@@ -1,0 +1,18 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 2
+  strategy: Recreate
+  selector:
+    matchLabels:
+      deploy: frontend
+  template:
+    metadata:
+      labels:
+        deploy: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ghcr.io/jniltinho/desafio-devops/frontend:latest
