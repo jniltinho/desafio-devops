@@ -19,7 +19,7 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: 123456
         - name: MYSQL_DATABASE
-          value: employeedb
+          value: backenddb
         - name: MYSQL_USER
           value: sa
         - name: MYSQL_PASSWORD
