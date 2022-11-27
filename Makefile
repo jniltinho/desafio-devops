@@ -27,7 +27,6 @@ add-user-mysql-compose:
 create-cluster-kind:
 	kind create cluster --config=k8s/kind-config.yaml
 	kubectl cluster-info --context kind-desafio-devops-cluster
-	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
 
 deploy-kubernetes-local:
 	kubectl apply -f k8s/deployment-mysql.yaml
