@@ -16,3 +16,5 @@ spec:
       containers:
         - name: frontend
           image: ghcr.io/jniltinho/desafio-devops/frontend:latest
+          ports:
+          - containerPort: 80
