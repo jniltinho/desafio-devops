@@ -1,9 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-deployment
-  labels:
-    app: backend
+  name: backend
 spec:
   selector:
     matchLabels:
@@ -14,8 +12,23 @@ spec:
         app: backend
     spec:
       containers:
-      - image: ghcr.io/jniltinho/desafio-devops/backend:latest
-        name: backend
-        ports:
-        - containerPort: 8080
-
+        - name: backend
+          image: ghcr.io/jniltinho/desafio-devops/backend:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 80
+    targetPort: 8080
