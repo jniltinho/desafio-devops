@@ -28,7 +28,7 @@ create-cluster-kind:
 	kind create cluster --config=k8s/kind-config.yaml
 	kubectl cluster-info --context kind-desafio-devops-cluster
 
-deploy-kubernetes-local:
+deploy-kubernetes:
 	kubectl apply -f k8s/deployment-mysql.yaml
 	kubectl apply -f k8s/deployment-frontend.yaml
 	kubectl apply -f k8s/deployment-backend.yaml
