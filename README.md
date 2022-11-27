@@ -35,6 +35,7 @@ sudo mv kind /usr/local/bin/
 git clone https://github.com/jniltinho/desafio-devops.git
 kind create cluster --config=desafio-devops/k8s/kind-config.yaml
 kubectl cluster-info --context kind-desafio-devops-cluster
+kubectl apply -f desafio-devops/k8s/deployment-mysql.yaml
 kubectl apply -f desafio-devops/k8s/deployment-frontend.yaml
 kubectl apply -f desafio-devops/k8s/deployment-backend.yaml
 ```
