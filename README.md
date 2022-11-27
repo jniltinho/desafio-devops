@@ -1,11 +1,13 @@
 # Quick start (Ambiente Linux)
 
-## Ambiente de Desenvolvimento (Escolha entre Docker-Compose ou Kubernetes )
+## Ambiente de Desenvolvimento
 
-URL padrão depois de subir a aplicação: http://localhost:8081 \
-User: admin Pass: admin \
-Ferramentas necessárias para subir no ambiente de Desenvolvimento
-- git,terminal,docker,docker-compose,make
+Ferramentas necessárias para subir no ambiente de Desenvolvimento \
+**git,terminal,docker,docker-compose,make**
+
+### Escolha entre Docker-Compose ou Kubernetes
+
+URL: http://localhost:8081 | User: admin Pass: admin \
 
 ## Usando Docker-Compose
 
