@@ -18,7 +18,8 @@ build-backend:
 
 deploy-compose:
 	docker-compose build
-	docker-compose up -b
+	docker-compose up -d
+	docker-compose exec mysqldb mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "INSERT INTO usuario (username, password) VALUES('admin', 'admin');"
 
 create-cluster-kind:
 	kind create cluster --config=k8s/kind-config.yaml
