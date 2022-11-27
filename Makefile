@@ -47,3 +47,9 @@ install-kubectl:
 	curl -LO "https://dl.k8s.io/release/$(shell curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 	chmod +x kubectl
 	sudo mv kubectl /usr/local/bin/
+
+install-doctl:
+	curl -LO https://github.com/digitalocean/doctl/releases/download/v1.88.0/doctl-1.88.0-linux-amd64.tar.gz
+	tar xf doctl-*-linux-amd64.tar.gz
+	sudo mv doctl /usr/local/bin/
+	rm -f doctl-*-linux-amd64.tar.gz
