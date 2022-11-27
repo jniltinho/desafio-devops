@@ -19,7 +19,8 @@ build-backend:
 deploy-compose:
 	docker-compose build
 	docker-compose up -d
-	sleep 20
+
+add-user-mysql-compose:
 	docker-compose exec mysqldb mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "INSERT INTO usuario (username, password) VALUES('admin', 'admin');"
 	docker-compose exec mysqldb mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "SELECT * FROM usuario;"
 
@@ -32,7 +33,7 @@ deploy-kubernetes-local:
 	kubectl apply -f k8s/deployment-frontend.yaml
 	kubectl apply -f k8s/deployment-backend.yaml
 	
-create-user-mysql-k8s:
+add-user-mysql-k8s:
 	$(eval POD := $(shell kubectl get pod -l app=mysqldb -o jsonpath="{.items[0].metadata.name}"))
 	kubectl exec $(POD) -- mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "INSERT INTO usuario (username, password) VALUES('admin', 'admin');"
 	kubectl exec $(POD) -- mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) -e "SELECT * FROM usuario;"
