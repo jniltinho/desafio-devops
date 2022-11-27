@@ -21,7 +21,7 @@ spec:
           - name: MYSQL_DB_USER
             value: sa
           - name: MYSQL_DB_PASS
-            value: 123456
+            value: "123456"
           resources:
             limits:
               memory: "128Mi"
