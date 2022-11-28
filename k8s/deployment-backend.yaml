@@ -22,10 +22,6 @@ spec:
             value: sa
           - name: MYSQL_DB_PASS
             value: "123456"
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
           ports:
           - containerPort: 8080
 ---
