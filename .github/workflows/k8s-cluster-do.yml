@@ -45,8 +45,3 @@ jobs:
         kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx
         kubectl get services ingress-nginx-controller --namespace=ingress-nginx
         kubectl get services ingress-nginx-controller --namespace=ingress-nginx
-      
-      
-      
-     
-      
