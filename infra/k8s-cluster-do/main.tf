@@ -11,7 +11,7 @@
 terraform {
   required_providers {
     digitalocean = {
-      source = "digitalocean/digitalocean"
+      source  = "digitalocean/digitalocean"
       version = "~> 2.0"
     }
   }
@@ -29,12 +29,12 @@ output "k8s-versions" {
 }
 
 resource "digitalocean_kubernetes_cluster" "cluster01" {
-  name    = "cluster01"
-  region  = var.region
+  name   = "cluster01"
+  region = var.region
   # doctl kubernetes options versions
   version = data.digitalocean_kubernetes_versions.do_k8s_versions.latest_version
 
-node_pool {
+  node_pool {
     name       = "autoscale-worker-pool"
     size       = "s-2vcpu-2gb"
     auto_scale = true
