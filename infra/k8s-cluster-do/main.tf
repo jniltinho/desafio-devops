@@ -15,7 +15,7 @@ terraform {
 
 variable "region" {
   # doctl kubernetes options regions
-  default = "nyc3"
+  default = "tor1"
 }
 
 data "digitalocean_kubernetes_versions" "do_k8s_versions" {}
