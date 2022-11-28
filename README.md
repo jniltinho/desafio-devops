@@ -48,5 +48,6 @@ make add-user-mysql-k8s
 
 ## Links
 - https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+- https://platform9.com/learn/v1.0/tutorials/nginix-controller-via-yaml
 - https://kind.sigs.k8s.io/docs/user/quick-start/
 - https://www.youtube.com/watch?v=dL19dSGKZoc
