@@ -30,4 +30,7 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Validate
       run: cd infra/k8s-cluster-do/; terraform validate
-      
+
+    # Create k8s Cluster DigitalOcean
+    - name: Create Cluster DO
+      run: cd infra/k8s-cluster-do/; terraform apply --auto-approve
