@@ -9,7 +9,7 @@ on:
 
 env:
   DIGITALOCEAN_ACCESS_TOKEN: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
-  INGRESS_DEPLOY: 'https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/do/deploy.yaml'
+  INGRESS_DEPLOY: 'https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/do/deploy.yaml'
   CLUSTER_NAME: 'prod01'
 
 
