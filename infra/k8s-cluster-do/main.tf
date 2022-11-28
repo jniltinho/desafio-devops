@@ -24,14 +24,14 @@ output "k8s-versions" {
   value = data.digitalocean_kubernetes_versions.do_k8s_versions.latest_version
 }
 
-resource "digitalocean_kubernetes_cluster" "prod01" {
+resource "digitalocean_kubernetes_cluster" "k8s" {
   name   = "prod01"
   region = var.region
   # doctl kubernetes options versions
   version = data.digitalocean_kubernetes_versions.do_k8s_versions.latest_version
 
   node_pool {
-    name       = "autoscale-wk-pool"
+    name       = "nodepool"
     size       = "s-2vcpu-2gb"
     auto_scale = true
     min_nodes  = 1
