@@ -34,3 +34,19 @@ jobs:
     # Create k8s Cluster DigitalOcean
     - name: Create Cluster DO
       run: cd infra/k8s-cluster-do/; terraform apply --auto-approve
+      
+    - name: Add K8s Config for kubectl
+      run: doctl kubernetes cluster list; doctl kubernetes cluster kubeconfig save cluster01      
+      
+    - name: Install NGINX Ingress Controller
+      run: | 
+        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.44.0/deploy/static/provider/cloud/deploy.yaml
+        kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx
+        kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx
+        kubectl get services ingress-nginx-controller --namespace=ingress-nginx
+        kubectl get services ingress-nginx-controller --namespace=ingress-nginx
+      
+      
+      
+     
+      
