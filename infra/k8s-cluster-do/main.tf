@@ -2,7 +2,7 @@
 ## terraform init; terraform plan; terraform apply --auto-approve
 
 ## Save config
-## doctl kubernetes cluster list; doctl kubernetes cluster kubeconfig save cluster01
+## doctl kubernetes cluster list; doctl kubernetes cluster kubeconfig save prod01
 
 terraform {
   required_providers {
@@ -15,7 +15,7 @@ terraform {
 
 variable "region" {
   # doctl kubernetes options regions
-  default = "nyc1"
+  default = "nyc3"
 }
 
 data "digitalocean_kubernetes_versions" "do_k8s_versions" {}
@@ -24,14 +24,14 @@ output "k8s-versions" {
   value = data.digitalocean_kubernetes_versions.do_k8s_versions.latest_version
 }
 
-resource "digitalocean_kubernetes_cluster" "cluster01" {
-  name   = "cluster01"
+resource "digitalocean_kubernetes_cluster" "prod01" {
+  name   = "prod01"
   region = var.region
   # doctl kubernetes options versions
   version = data.digitalocean_kubernetes_versions.do_k8s_versions.latest_version
 
   node_pool {
-    name       = "autoscale-worker-pool"
+    name       = "autoscale-wk-pool"
     size       = "s-2vcpu-2gb"
     auto_scale = true
     min_nodes  = 1
