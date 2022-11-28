@@ -1,12 +1,8 @@
 ## export DIGITALOCEAN_ACCESS_TOKEN=dop_v1_3XXXX
-## terraform init
-## terraform plan
-## terraform apply --auto-approve
+## terraform init; terraform plan; terraform apply --auto-approve
 
 ## Save config
-## doctl kubernetes cluster list
-## doctl kubernetes cluster kubeconfig save cluster01
-
+## doctl kubernetes cluster list; doctl kubernetes cluster kubeconfig save cluster01
 
 terraform {
   required_providers {
