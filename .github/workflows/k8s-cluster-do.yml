@@ -41,5 +41,8 @@ jobs:
     - name: Install NGINX Ingress Controller
       run: | 
         kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/do/deploy.yaml
-        kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx
-        kubectl get services ingress-nginx-controller -n=ingress-nginx
+        kubectl get pods -n=ingress-nginx
+        kubectl get svc -n=ingress-nginx
+
+    - name: K8s Create Default Namespace
+      run: kubectl create ns prod; kubectl create ns homol; kubectl create ns dev
