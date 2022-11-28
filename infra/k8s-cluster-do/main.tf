@@ -15,7 +15,7 @@ terraform {
 
 variable "region" {
   # doctl kubernetes options regions
-  default = "tor1"
+  default = "ams3"
 }
 
 data "digitalocean_kubernetes_versions" "do_k8s_versions" {}
