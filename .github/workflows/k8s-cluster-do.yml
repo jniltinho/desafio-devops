@@ -10,6 +10,7 @@ on:
 
 env:
   DIGITALOCEAN_ACCESS_TOKEN: ${{secrets.DIGITALOCEAN_ACCESS_TOKEN}}
+  INGRESS_DEPLOY: 'https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/do/deploy.yaml'
   TZ: 'America/Sao_Paulo'
 
 
@@ -39,10 +40,7 @@ jobs:
       run: doctl kubernetes cluster list; doctl kubernetes cluster kubeconfig save cluster01      
       
     - name: Install NGINX Ingress Controller
-      run: | 
-        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/do/deploy.yaml
-        kubectl get pods -n=ingress-nginx
-        kubectl get svc -n=ingress-nginx
+      run: kubectl apply -f ${INGRESS_DEPLOY}; kubectl get pods -n=ingress-nginx; kubectl get svc -n=ingress-nginx     
 
     - name: K8s Create Default Namespace
       run: kubectl create ns prod; kubectl create ns homol; kubectl create ns dev
